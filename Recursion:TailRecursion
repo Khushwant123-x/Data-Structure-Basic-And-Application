@@ -1,0 +1,14 @@
+// Tail Recursion
+#include<stdio.h>
+void TailRecursion(int n);
+int main(){
+TailRecursion(5);
+return 0;
+}
+void TailRecursion(int n){
+if(n<=0) return;
+else{
+printf("%d\t",n);
+TailRecursion(n-1);
+}
+}
