@@ -1,0 +1,27 @@
+// Bubble Sort
+// Online C compiler to run C program online
+#include <stdio.h>
+
+int main() {
+int flag=0;
+int arr[] = {45, 23, 168, 79, 90, 243, 126, 112, 248, 78, 167};
+int i=0;
+int n= sizeof(arr)/sizeof(arr[0]);
+for(int i=0;i<n;i++){
+    printf("%d\t",arr[i]);
+}
+for(i=0;i<n-1;i++){
+    for(int j=0;j<n-i-1;j++){
+        if(arr[j]>arr[j+1]){
+            int temp=arr[j+1];
+            arr[j+1]=arr[j];
+            arr[j]=temp;
+        }
+    }
+}
+printf("\nsorted array:");
+for(int i=0;i<n;i++){
+    printf("%d\t",arr[i]);
+}
+    return 0;
+}
