@@ -1,0 +1,35 @@
+// Binary Search
+// Online C compiler to run C program online
+#include <stdio.h>
+
+int main() {
+int n,m,flag=0;
+int arr[]={23,45,78,79,90,112,126,167,243,248,318};
+for(int i=0;i<11;i++){
+    printf("%d\t",arr[i]);
+}
+int low=0;
+int high=sizeof(arr)/sizeof(arr[0])-1;
+printf("\nEnter number which you want: ");
+    scanf("%d", &n);
+while(low<=high){
+    int mid=low+(high-low)/2;
+    if(arr[mid]==n){
+        flag=1;
+        m=mid;
+        break;
+    }
+    else if (arr[mid]<n){
+        low=mid+1;
+    }
+    else{
+        high=mid-1;;
+    }
+}
+if (flag == 1) {
+        printf("Your number is present at index %d", m+1);
+    } else {
+        printf("Your number is not present\n");
+    }
+    return 0;
+}
