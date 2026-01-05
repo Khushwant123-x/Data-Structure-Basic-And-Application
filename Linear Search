@@ -1,0 +1,20 @@
+//Linear Search
+#include <stdio.h>
+int main(){
+    int i, key,flag=0;
+    int arr[]={8,5,7,3,9,2,0};
+    int n=sizeof(arr)/sizeof(arr[0]);
+    printf("enter the key which you want to search:");
+    scanf("%d",&key);
+    for(i=0;i<=n;i++){
+        if(key==arr[i]){
+        printf("key is found at position =%d",i+1);
+        flag=1;
+        break;
+        }
+    }
+    if(flag==0){
+        printf("key is not found");
+    }
+    return 0;
+}
