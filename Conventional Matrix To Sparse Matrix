@@ -1,0 +1,40 @@
+// Conventional Matrix To Sparse Matrix
+#include <stdio.h>
+
+#define MAX 10
+
+int main() {
+    int m, n;
+    int A[MAX][MAX];
+    int sparse[MAX][3]; // row, col, value
+    int k = 0;
+
+    printf("Enter rows and cols: ");
+    scanf("%d %d", &m, &n);
+
+    printf("Enter matrix:\n");
+    for(int i=0; i<m; i++) {
+        for(int j=0; j<n; j++) {
+            scanf("%d", &A[i][j]);
+        }
+    }
+
+    // Convert to sparse
+    for(int i=0; i<m; i++) {
+        for(int j=0; j<n; j++) {
+            if(A[i][j] != 0) {
+                sparse[k][0] = i;
+                sparse[k][1] = j;
+                sparse[k][2] = A[i][j];
+                k++;
+            }
+        }
+    }
+
+    printf("\nSparse Matrix (row col value):\n");
+    for(int i=0; i<k; i++) {
+        printf("%d %d %d\n", sparse[i][0], sparse[i][1], sparse[i][2]);
+    }
+
+    return 0;
+}
