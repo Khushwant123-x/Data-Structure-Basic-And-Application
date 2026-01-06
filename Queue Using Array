@@ -1,0 +1,61 @@
+// Queue Using Array
+#include<stdio.h>
+#include<stdlib.h>
+#define MAX 5
+int queue[MAX];
+int front=-1;
+int rear=-1;
+void enqueue();
+void dequeue();
+void display();
+void main(){
+    int ch;
+    while(1){
+        printf("\nPress 1.Enqueue\t2.Dequeue\t3.Display\t0.exit:");
+        scanf("%d",&ch);
+        switch(ch){
+        case 1: enqueue(); break;
+        case 2: dequeue(); break;
+        case 3: display(); break;
+        case 0: exit(0); break;
+        default: printf(" wrong choice");
+        }
+    }
+}
+void enqueue(){
+    if(rear==MAX-1) {
+        printf("Queue is overflow");
+    }
+    else{
+        if(front==-1) front=0;
+        int data;
+        printf("enter element:");
+        scanf("%d",&data);
+        rear=rear+1;
+        queue[rear]=data;
+        printf("Enqueue Successfully.../");
+    }
+}
+void dequeue(){
+    if(front==-1 || front==rear+1){
+        printf("Queue is underflow");
+    }
+    else{
+        int data;
+        data=queue[front];
+        printf("Dequeue element=%d\n",data);
+        front=front+1;
+          if (front > rear) { // reset when queue becomes empty
+            front = rear = -1;
+        }
+        printf("Dequeue Successfully.../");
+    }
+}
+void display(){
+    if(front==-1){
+        printf("stack is underflow");
+    }
+    for(int i=front;i<=rear;i++){
+        printf("%d\t",queue[i]);
+    }
+}
